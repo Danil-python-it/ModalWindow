@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+
+:root{
+    --main_color:rgb(106, 176, 204);
+    --border_check:1px solid black;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Gabriela", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+    overflow: hidden;
+}
+
+body{    
+    width: 100%;
+    height: 100vh;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("background.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: blur(3px);
+    filter: brightness(40%);
+    z-index: -1;
+}
+.container{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.UI-user{
+    width: 500px;
+    height: 200px;
+    border-radius: 20px;
+    position: absolute;
+    background: rgb(175, 175, 175);
+    box-shadow: 0px 6px 10px 2px rgba(175, 175, 175, 0.507);
+    bottom: 2.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.status{
+    display: flex;
+    font-size: 20px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 5px 20px;
+    border-radius: 15px;
+    gap: 5px;
+}
+.status_show{
+    color: white;
+    letter-spacing: 2px;
+}
+.Btn{
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    padding: 5px 20px;
+    background-color: rgb(106, 176, 204);
+    transition: 0.7s;
+}
+.container-ui{
+    transition: 0.3s;
+}
+.container-ui:hover{
+    transform: scale(1.2);
+}
+.container-ui:hover .Btn{
+    background-color: rgb(173, 106, 204);
+}
+.modal-window{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgb(175, 175, 175);
+    box-shadow: 0px 6px 10px 2px rgba(175, 175, 175, 0.507);
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: clip 0.2s;
+    bottom: 101%;
+}
+.ctn_image{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+.ctn_image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+.modal-window:hover .ctn_image{
+    transform: scale(1.2);
+}
+.user-info{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    bottom: 2%;
+    padding: 10px;
+}
+.user-info .Btn{
+    font-size: 15px;
+    padding: 10px 12px 7px 12px;
+    transform: scale(0.8);
+}
+
+.Modal-Logo{
+    font-size: 20px;
+    font-weight: 900;
+    border-bottom: rgb(106, 176, 204) 2px solid;
+}
+
+.OpenModalWindow{
+    animation: OpenWindow 1s forwards normal ease-in-out;
+}
+.ClouseModalWindow{
+    animation: ClouseWindow 1s forwards normal ease-in-out;
+}
+
+@keyframes OpenWindow{
+    0%{
+        transform: scale(0);
+        bottom: 101%;
+    }
+    70%{
+        transform: scale(1.1);
+        bottom: 50%;
+    }
+    100%{
+        transform: scale(1);
+        bottom: 30%;
+    }
+}
+
+@keyframes ClouseWindow{
+    0%{
+        transform: scale(1);
+        bottom: 30%;
+    }
+    30%{
+        transform: scale(1.1);
+        bottom: 50%;
+    }
+    100%{
+        transform: scale(0);
+        bottom: 101%;
+    }
+}
+
+
+@media (max-width:560px){
+    .UI-user{
+        width: 100%;
+        height: 20vh;
+        bottom: 0;
+        overflow: visible;
+    }
+    .UI-user::before{
+        position: absolute;
+        content:"";
+        width: 10vw;
+        height: 10vh;
+        background-color: rgb(175, 175, 175);
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+    .UI-user::after{
+        position: absolute;
+        content:"";
+        width: 10vw;
+        height: 10vh;
+        background-color: rgb(175, 175, 175);
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+    }
+    .container{
+        align-items: start;
+    }
+
+    .modal-window{
+        width: 100%;
+        margin-top: 20%;
+    }
+}
